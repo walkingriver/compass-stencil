@@ -8,8 +8,8 @@ import '@stencil/router';
 
 
 import {
-  WrCompass as WrCompass
-} from './components/wr-compass/wr-compass';
+  Compass as WrCompass
+} from './components/compass/compass';
 
 declare global {
   interface HTMLWrCompassElement extends WrCompass, HTMLElement {

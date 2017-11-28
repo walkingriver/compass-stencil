@@ -1,16 +1,16 @@
 import { flush, render } from '@stencil/core/testing';
-import { WrCompass } from './wr-compass';
+import { Compass } from './wr-compass';
 
 describe('wr-compass', () => {
   it('should build', () => {
-    expect(new WrCompass()).toBeTruthy();
+    expect(new Compass()).toBeTruthy();
   });
 
   describe('rendering', () => {
     let element;
     beforeEach(async () => {
       element = await render({
-        components: [WrCompass],
+        components: [Compass],
         html: '<wr-compass></wr-compass>'
       });
     });

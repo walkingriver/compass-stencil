@@ -1,35 +1,31 @@
 import { Component, Element, Prop, PropWillChange } from '@stencil/core';
 
-
 @Component({
   tag: 'wr-compass',
-  styleUrl: 'wr-compass.scss'
+  styleUrl: 'compass.scss'
 })
-export class WrCompass {
 
-  @Prop() bearing: number;
-  @Prop() heading: number;
-
+export class Compass {
   @Element() compassElement: HTMLElement;
 
-
+  /**
+   * The compass direction (in degrees) to which the compass should point.
+   */
+  @Prop() bearing: number;
   @PropWillChange('bearing')
-  bearingChanged(newValue: number) {
+  bearingChanging(newValue: number) {
     this.updateCompass(newValue, this.heading);
   }
 
+  /**
+   * The compass direction (in degrees) the device is facing.
+   */
+  @Prop() heading: number;
   @PropWillChange('heading')
   headingChanging(newValue: number) {
     this.updateCompass(this.bearing, newValue);
   }
-
-  updateCompass(heading, bearing) {
-    var newBearing = (heading || 0) - (bearing || 0) - 40;
-    var needle = this.compassElement.getElementsByClassName('dip-needle');
-    var elem = needle[0] as HTMLElement;
-    elem.style.webkitTransform = `rotate(${newBearing}deg)`;
-  }
-
+  
   /**
    * The component will load but has not rendered yet.
    * 
@@ -38,6 +34,13 @@ export class WrCompass {
   componentDidLoad() {
     this.updateCompass(this.heading, this.bearing);
   }
+  updateCompass(heading, bearing) {
+    var newBearing = (heading || 0) - (bearing || 0) - 40;
+    var needle = this.compassElement.getElementsByClassName('dip-needle');
+    var elem = needle[0] as HTMLElement;
+    elem.style.webkitTransform = `rotate(${newBearing}deg)`;
+  }
+
   render() {
     return (
       <div class="compass">
