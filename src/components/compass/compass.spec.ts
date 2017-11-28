@@ -1,5 +1,5 @@
 import { flush, render } from '@stencil/core/testing';
-import { Compass } from './wr-compass';
+import { Compass } from './compass';
 
 describe('wr-compass', () => {
   it('should build', () => {
@@ -16,26 +16,26 @@ describe('wr-compass', () => {
     });
 
     it('should work without parameters', () => {
-      expect(element.textContent).toEqual('Hello, my name is  ');
+      expect(element.textContent).toEqual('NEWS° / °');
     });
 
-    it('should work a first name', async () => {
-      element.first = 'Peter';
+    it('should work a bearing', async () => {
+      element.bearing = 185;
       await flush(element);
-      expect(element.textContent).toEqual('Hello, my name is Peter ');
+      expect(element.textContent).toEqual('NEWS185° / °');
     });
 
-    it('should work with a last name', async () => {
-      element.last = 'Parker';
+    it('should work with a heading', async () => {
+      element.heading = 95;
       await flush(element);
-      expect(element.textContent).toEqual('Hello, my name is  Parker');
+      expect(element.textContent).toEqual('NEWS° / 95°');
     });
 
-    it('should work with both a first and a list name', async () => {
-      element.first = 'Peter'
-      element.last = 'Parker';
+    it('should work with both a bearing and a heading', async () => {
+      element.bearing = 90
+      element.heading = 45;
       await flush(element);
-      expect(element.textContent).toEqual('Hello, my name is Peter Parker');
+      expect(element.textContent).toEqual('NEWS90° / 45°');
     });
   });
 });
