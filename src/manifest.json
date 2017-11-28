@@ -1,6 +1,6 @@
 {
-  "name": "Stencil Starter",
-  "short_name": "Stencil",
+  "name": "Compass Stencil",
+  "short_name": "Compass",
   "start_url": "/",
   "display": "standalone",
   "icons": [{
