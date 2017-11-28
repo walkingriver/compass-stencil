@@ -1,6 +1,6 @@
 exports.config = {
   bundles: [
-    { components: ['my-name'] }
+    { components: ['wr-compass'] }
   ],
   collections: [
     { name: '@stencil/router' }

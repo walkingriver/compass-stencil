@@ -1,0 +1,203 @@
+// @import url('http://fonts.googleapis.com/css?family=Raleway:400,200,300,500,600,700');
+
+wr-compass {
+  
+  body {
+    // font: 17px 'Raleway Light', sans-serif;
+    background: rgba(200,200,200,.3);
+    color: #888;
+    text-align: center;
+  }
+  
+  .compass {
+    width: 260px;
+    height: 260px;
+    position: relative;
+    margin: 150px auto;
+    margin-bottom: 50px;
+    background: linear-gradient(#DDD, #CCC 20%, #DDD);
+    border-radius: 50%;
+    box-shadow: 0 2px 6px .8px #999;
+    // animation: sliding 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    // -webkit-animation: sliding 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    -webkit-animation: sliding 0.5s ease-in-out;
+    animation: sliding 0.5s ease-in-out;
+  }
+  
+  .compass:after {
+    content: "";
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: -26px;
+    left: 50%; 
+    margin-left: -16px;
+    border: 6px solid #DDD;
+    border-radius: 50%;
+  }
+  
+  .compass-main {
+    width: 94%;
+    height: 94%;
+    position: absolute;
+    top: 50%; left: 50%;
+    margin-top: -47%; margin-left: -47%;
+    background: radial-gradient(#EEE 50%, #DDD 80%);
+    border-radius: 50%;
+  }
+  
+  .compass-rose {
+    width: 70%;
+    height: 70%;
+    position: absolute;
+    top: 50%; left: 50%;
+    margin-top: -35%; margin-left: -35%;
+  }
+  
+  .pointer {
+    width: 0; height: 0;
+    position: absolute;
+    border: 80px solid;
+    border-left: 14px solid; border-right: 14px solid;
+  }
+  
+  .cardial-points .pointer {
+    border-color: #DDD transparent transparent transparent;
+  }
+  
+  .ordinal-points .pointer {
+    border-color: #AAA transparent transparent transparent;
+  }
+  
+  .north-pointer {
+    top: -40px; margin-top: -40px;
+    left: 50%; margin-left: -14px;
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+  }
+  
+  .east-pointer {
+    top: 28%; right: -10px; 
+    margin-top: -40px;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+  
+  .west-pointer {
+    top: 28%; left: -10px; 
+    margin-top: -40px;
+    -webkit-transform: rotate(90deg);
+    transform: rotate(90deg);
+  }
+  
+  .south-pointer {
+    bottom: -40px; margin-bottom: -40px;
+    left: 50%; margin-left: -14px;
+  }
+  
+  
+  
+  .bt-center {
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    z-index: 100000;
+    top: 50%; left: 50%;
+    margin-top: -8px; margin-left: -8px;
+    display: block;
+    background: #444;
+    border-radius: 50%;
+  }
+  
+  .dip-needle {
+    width: 12px;
+    height: 12px;
+    position: absolute;
+    z-index: 999;
+    top: 50%; left: 50%;
+    margin-top: -6px; margin-left: -6px;
+    -webkit-transition: transform 0.50s ease-in-out;
+    transition: transform 0.50s ease-in-out;
+  }
+  
+  .dip-needle:after {
+    content: "";
+    width: 0; height: 0;
+    position: absolute;
+    top: -138px; right: -54px;
+    border: 80px solid;
+    border-left: 6px solid; border-right: 6px solid;
+    border-color: #B20000 transparent transparent transparent;
+    -webkit-transform: rotate(220deg);
+    transform: rotate(220deg);
+    z-index: -10000;
+  }
+  
+  .dip-needle:before {
+    content: "";
+    display: block;
+    width: 0; height: 0;
+    position: absolute;
+    top: -10px; right: 54px;
+    border: 80px solid;
+    border-left: 6px solid; border-right: 6px solid;
+    border-color: #CCC transparent transparent transparent;
+    -webkit-transform: rotate(40deg);
+    transform: rotate(40deg);
+  }
+  
+  .north-label {
+    position: absolute;
+    top: 10px; left: 116px;
+  }
+  
+  .east-label {
+    position: absolute;
+    top: 114px; right: 12px;
+  }
+  
+  .west-label {
+    position: absolute;
+    top: 114px; left: 12px;
+  }
+  
+  .south-label {
+    position: absolute;
+    bottom: 6px; left: 116px;
+  }
+  
+  .create {
+    font-size: 1.2em;
+    -webkit-animation: fadeIn 0.2s ease-in;
+    animation: fadeIn 0.2s ease-in;
+  }
+  
+  .author {
+    text-decoration: none;
+    color: #1abc9c;
+  }
+  
+  // @keyframes animation-dip-needle {
+  //   0% { transform: rotate(-70deg); }
+  //   30% { transform: rotate(-30deg); }
+  //   50% { transform: rotate(-40deg); }
+  //   70% { transform: rotate(-20deg); }
+  //   100% { transform: rotate(-70deg); }
+  // }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;  
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes sliding {
+    0% { transform: translateY(-800px); opacity:0; }
+    70%{ opacity:0.4; }
+    80% { transform: translateY(48px); opacity:0.6; }
+    100% { transform: translateY(0); opacity:1; }
+  }
+}

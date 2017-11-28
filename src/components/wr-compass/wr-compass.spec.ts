@@ -1,17 +1,17 @@
 import { flush, render } from '@stencil/core/testing';
-import { MyName } from './my-name';
+import { WrCompass } from './wr-compass';
 
-describe('my-name', () => {
+describe('wr-compass', () => {
   it('should build', () => {
-    expect(new MyName()).toBeTruthy();
+    expect(new WrCompass()).toBeTruthy();
   });
 
   describe('rendering', () => {
     let element;
     beforeEach(async () => {
       element = await render({
-        components: [MyName],
-        html: '<my-name></my-name>'
+        components: [WrCompass],
+        html: '<wr-compass></wr-compass>'
       });
     });
 

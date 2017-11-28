@@ -15,8 +15,22 @@
   <link rel="manifest" href="/manifest.json">
 </head>
 <body>
+  Enter compass value here: <input type="number" min="0" max="359" value="0" id="bearing" onchange="setBearing()" style="border: solid 1px;">
+  <br/>
+  Enter device heading here: <input type="number" min="0" max="359" value="0" id="heading" onchange="setHeading()" style="border: solid 1px;">
+  <wr-compass id="compass" heading="0.00" bearing="0.00"></wr-compass>
 
-  <my-name first="Stencil" last="JS"></my-name>
-
+  <script lang="javascript">
+    function setBearing() {
+      var bearing = document.getElementById('bearing').value;
+      var compass = document.getElementById('compass');
+      compass.setAttribute('bearing', bearing);
+    }
+    function setHeading() {
+      var heading = document.getElementById('heading').value;
+      var compass = document.getElementById('compass');
+      compass.setAttribute('heading', heading);
+    }
+  </script> 
 </body>
 </html>

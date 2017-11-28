@@ -6,32 +6,35 @@
 
 import '@stencil/router';
 
-import { MyName as MyName } from './components/my-name/my-name';
 
-interface HTMLMyNameElement extends MyName, HTMLElement {
-}
-declare var HTMLMyNameElement: {
-  prototype: HTMLMyNameElement;
-  new (): HTMLMyNameElement;
-};
+import {
+  WrCompass as WrCompass
+} from './components/wr-compass/wr-compass';
+
 declare global {
+  interface HTMLWrCompassElement extends WrCompass, HTMLElement {
+  }
+  var HTMLWrCompassElement: {
+    prototype: HTMLWrCompassElement;
+    new (): HTMLWrCompassElement;
+  };
   interface HTMLElementTagNameMap {
-      "my-name": HTMLMyNameElement;
+    "wr-compass": HTMLWrCompassElement;
   }
   interface ElementTagNameMap {
-      "my-name": HTMLMyNameElement;
+    "wr-compass": HTMLWrCompassElement;
   }
   namespace JSX {
-      interface IntrinsicElements {
-          "my-name": JSXElements.MyNameAttributes;
-      }
+    interface IntrinsicElements {
+      "wr-compass": JSXElements.WrCompassAttributes;
+    }
   }
   namespace JSXElements {
-      export interface MyNameAttributes extends HTMLAttributes {
-        
-          first?: any,
-          last?: any
-      }
+    export interface WrCompassAttributes extends HTMLAttributes {
+      
+        bearing?: number,
+        heading?: number
+    }
   }
 }
 
