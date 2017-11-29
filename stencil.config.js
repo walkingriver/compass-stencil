@@ -4,7 +4,10 @@ exports.config = {
   ],
   collections: [
     { name: '@stencil/router' }
-  ]
+  ],
+  namespace: 'wr-compass',
+  generateDistribution: true,
+  generateWWW: false
 };
 
 exports.devServer = {

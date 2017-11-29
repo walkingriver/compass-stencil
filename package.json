@@ -1,11 +1,15 @@
 {
-  "name": "@stencil/starter",
+  "name": "@walkingriver/compass",
   "private": true,
   "version": "0.0.1",
-  "description": "Stencil App Starter",
+  "description": "Walking River Compass",
+  "main": "dist/collection/index.js",
+  "types": "dist/collection/index.d.ts",
+  "collection": "dist/collection/collection-manifest.json",
   "files": [
     "dist/"
   ],
+  "browser": "dist/wr-compass.js",
   "scripts": {
     "build": "stencil build --prerender",
     "dev": "sd concurrent \"stencil build --dev --watch\" \"stencil-dev-server\" ",
@@ -26,14 +30,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ionic-team/stencil-app-starter.git"
+    "url": "git+https://github.com/walkingriver/compass-stencil.git"
   },
-  "author": "Ionic Team",
+  "author": "Walking River",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ionic-team/stencil"
+    "url": "https://github.com/walkingriver/compass-stencil"
   },
-  "homepage": "https://github.com/ionic-team/stencil",
+  "homepage": "https://github.com/walkingriver/compass-stencil",
   "jest": {
     "transform": {
       "^.+\\.(ts|tsx)$": "<rootDir>/node_modules/@stencil/core/testing/jest.preprocessor.js"
