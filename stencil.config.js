@@ -7,7 +7,7 @@ exports.config = {
   ],
   namespace: 'wr-compass',
   generateDistribution: true,
-  generateWWW: false
+  generateWWW: true
 };
 
 exports.devServer = {
