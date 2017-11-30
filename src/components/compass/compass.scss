@@ -1,9 +1,5 @@
-// @import url('http://fonts.googleapis.com/css?family=Raleway:400,200,300,500,600,700');
-
 wr-compass {
-  
   body {
-    // font: 17px 'Raleway Light', sans-serif;
     background: rgba(200,200,200,.3);
     color: #888;
     text-align: center;
@@ -18,8 +14,6 @@ wr-compass {
     background: linear-gradient(#DDD, #CCC 20%, #DDD);
     border-radius: 50%;
     box-shadow: 0 2px 6px .8px #999;
-    // animation: sliding 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    // -webkit-animation: sliding 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     -webkit-animation: sliding 0.5s ease-in-out;
     animation: sliding 0.5s ease-in-out;
   }

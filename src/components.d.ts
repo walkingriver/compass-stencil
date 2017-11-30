@@ -33,7 +33,8 @@ declare global {
     export interface WrCompassAttributes extends HTMLAttributes {
       
         bearing?: number,
-        heading?: number
+        heading?: number,
+        showValues?: boolean
     }
   }
 }

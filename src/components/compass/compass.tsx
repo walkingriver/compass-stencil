@@ -1,4 +1,4 @@
-import { Component, Element, Prop, PropWillChange } from '@stencil/core';
+import { Component, Element, Prop } from '@stencil/core';
 
 @Component({
   tag: 'wr-compass',
@@ -12,36 +12,30 @@ export class Compass {
    * The compass direction (in degrees) to which the compass should point.
    */
   @Prop() bearing: number;
-  @PropWillChange('bearing')
-  bearingChanging(newValue: number) {
-    this.updateCompass(newValue, this.heading);
-  }
 
   /**
    * The compass direction (in degrees) the device is facing.
    */
   @Prop() heading: number;
-  @PropWillChange('heading')
-  headingChanging(newValue: number) {
-    this.updateCompass(this.bearing, newValue);
-  }
-  
-  /**
-   * The component will load but has not rendered yet.
-   * 
-   * This is a good place to make any last minute updates before rendering. 
-   */
-  componentDidLoad() {
-    this.updateCompass(this.heading, this.bearing);
-  }
-  updateCompass(heading, bearing) {
-    var newBearing = (heading || 0) - (bearing || 0) - 40;
-    var needle = this.compassElement.getElementsByClassName('dip-needle');
-    var elem = needle[0] as HTMLElement;
-    elem.style.webkitTransform = `rotate(${newBearing}deg)`;
-  }
 
+  /**
+   * Specifies whether or not to show the heading
+   * and bearing values next to the compass, for
+   * debugging purposes.
+   */
+  @Prop() showValues = false;
+  
   render() {
+    const newBearing = (this.heading || 0) - (this.bearing || 0) - 40;
+
+    const styles = {
+      valuesVisbility: {visibility: this.showValues ? 'visible' : 'hidden'},
+      rotation: {
+        transform: `rotate(${newBearing}deg)`,
+        '-webkit-transform': `rotate(${newBearing}deg)`,
+      }
+    };
+
     return (
       <div class="compass">
         <div class="compass-main">
@@ -70,9 +64,9 @@ export class Compass {
           {/* <!-- Bt Center --> */}
           <div class="bt-center"></div>
           {/* <!-- Agulha Magnética | Dip Needle --> */}
-          <div class="dip-needle"></div>
+          <div class="dip-needle" style={styles.rotation}></div>
         </div>
-        <div class="author">{this.bearing}° / {this.heading}°</div>
+        <div style={styles.valuesVisbility} class="author">{this.bearing}° / {this.heading}°</div>
       </div>
     );
   }

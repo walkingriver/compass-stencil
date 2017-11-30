@@ -18,7 +18,11 @@
   Enter compass value here: <input type="number" min="0" max="359" value="0" id="bearing" onchange="setBearing()" style="border: solid 1px;">
   <br/>
   Enter device heading here: <input type="number" min="0" max="359" value="0" id="heading" onchange="setHeading()" style="border: solid 1px;">
-  <wr-compass id="compass" heading="0.00" bearing="0.00"></wr-compass>
+  <br/>
+  <input type="checkbox" id="showValues" onchange="setShowValues()" checked="checked">
+  <label for="showValues">Show heading and bearing values</label>
+  
+  <wr-compass id="compass" heading="0.00" bearing="0.00" show-values="true"></wr-compass>
 
   <script lang="javascript">
     function setBearing() {
@@ -30,6 +34,10 @@
       var heading = document.getElementById('heading').value;
       var compass = document.getElementById('compass');
       compass.setAttribute('heading', heading);
+    }
+    function setShowValues() {
+      var showValues = document.getElementById('showValues').checked;
+      compass.setAttribute('show-values', showValues);
     }
   </script> 
 </body>
